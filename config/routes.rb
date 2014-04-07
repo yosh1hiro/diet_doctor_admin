@@ -1,4 +1,7 @@
 DietDoctorAdmin::Application.routes.draw do
+  get "session/new"
+  get "session/create"
+  get "session/destroy"
   resources :rankings
 
   resources :counsel_comments
