@@ -1,0 +1,17 @@
+%h1 Listing counsels
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @counsels.each do |counsel|
+    %tr
+      %td= link_to 'Show', counsel
+      %td= link_to 'Edit', edit_counsel_path(counsel)
+      %td= link_to 'Destroy', counsel, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Counsel', new_counsel_path

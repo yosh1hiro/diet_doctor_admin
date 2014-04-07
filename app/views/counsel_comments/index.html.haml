@@ -1,0 +1,17 @@
+%h1 Listing counsel_comments
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @counsel_comments.each do |counsel_comment|
+    %tr
+      %td= link_to 'Show', counsel_comment
+      %td= link_to 'Edit', edit_counsel_comment_path(counsel_comment)
+      %td= link_to 'Destroy', counsel_comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Counsel comment', new_counsel_comment_path

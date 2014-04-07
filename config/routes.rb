@@ -1,4 +1,16 @@
 DietDoctorAdmin::Application.routes.draw do
+  resources :rankings
+
+  resources :counsel_comments
+
+  resources :counsels
+
+  resources :challenges
+
+  resources :weights
+
+  resources :achievements
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

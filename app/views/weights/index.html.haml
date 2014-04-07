@@ -1,0 +1,17 @@
+%h1 Listing weights
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @weights.each do |weight|
+    %tr
+      %td= link_to 'Show', weight
+      %td= link_to 'Edit', edit_weight_path(weight)
+      %td= link_to 'Destroy', weight, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Weight', new_weight_path
