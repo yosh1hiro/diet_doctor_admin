@@ -1,19 +1,14 @@
 DietDoctorAdmin::Application.routes.draw do
-  get "session/new"
-  get "session/create"
-  get "session/destroy"
+
+  root :to => 'dash_boards#index'
+
+  resource  :session, :only   => [:new, :create, :destroy]
   resources :rankings
-
   resources :counsel_comments
-
   resources :counsels
-
   resources :challenges
-
   resources :weights
-
   resources :achievements
-
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

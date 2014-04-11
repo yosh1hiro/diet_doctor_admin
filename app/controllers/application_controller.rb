@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
     redirect_to [:new, :session]  if current_user.nil?
   end
 
+  def admin_user
+    redirect_to [:new, :session]  if current_user.nil? || ! current_user.name.start_with?('admin.')
+  end
+
   def logout
     session.delete :user_id
     @current_user = nil

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407080231) do
+ActiveRecord::Schema.define(version: 20140411082308) do
 
   create_table "achievements", force: true do |t|
     t.integer  "user_id",                  null: false
@@ -118,7 +118,10 @@ ActiveRecord::Schema.define(version: 20140407080231) do
     t.integer  "level_1"
     t.integer  "group_2"
     t.integer  "level_2"
+    t.string   "auto_login_token"
   end
+
+  add_index "users", ["name"], name: "index_users_on_name", unique: true
 
   create_table "weights", force: true do |t|
     t.integer  "user_id",    null: false
