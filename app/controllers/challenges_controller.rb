@@ -4,12 +4,14 @@ class ChallengesController < ApplicationController
   # GET /challenges
   # GET /challenges.json
   def index
-    @challenges = Challenge.all
+    @challenges = Challenge.order(:group).to_a
+    @challenge = Challenge.new
   end
 
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+
   end
 
   # GET /challenges/new
@@ -24,14 +26,16 @@ class ChallengesController < ApplicationController
   # POST /challenges
   # POST /challenges.json
   def create
-    @challenge = Challenge.new(challenge_params)
-
+    @challenge = Challenge.new(params.require(:challenge).permit(:group))
+    @challenge.levels = (0...10).map do |i|
+      Level.new({group: @challenge.group, level: i})
+    end
     respond_to do |format|
       if @challenge.save
-        format.html { redirect_to @challenge, notice: 'Challenge was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @challenge }
+        format.html { redirect_to challenges_url, notice: '追加しました。' }
+        format.json { render json: @challenge.errors, status: :unprocessable_entity }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to challenges_url, alert: '追加できませんでした。' }
         format.json { render json: @challenge.errors, status: :unprocessable_entity }
       end
     end

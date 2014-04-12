@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411082308) do
+ActiveRecord::Schema.define(version: 20140412090959) do
 
   create_table "achievements", force: true do |t|
     t.integer  "user_id",                  null: false
@@ -28,9 +28,6 @@ ActiveRecord::Schema.define(version: 20140411082308) do
 
   create_table "challenges", force: true do |t|
     t.integer  "group",         null: false
-    t.integer  "level",         null: false
-    t.integer  "stage",         null: false
-    t.integer  "rank",          null: false
     t.string   "caption"
     t.string   "description"
     t.string   "description_1"
@@ -45,8 +42,6 @@ ActiveRecord::Schema.define(version: 20140411082308) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "challenges", ["group", "level"], name: "index_challenges_on_group_and_level", unique: true
 
   create_table "counsel_comments", force: true do |t|
     t.integer  "counsel_id"
@@ -73,6 +68,25 @@ ActiveRecord::Schema.define(version: 20140411082308) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "levels", force: true do |t|
+    t.integer  "group",                    null: false
+    t.integer  "level",                    null: false
+    t.integer  "stage",        default: 0, null: false
+    t.integer  "rank",         default: 0, null: false
+    t.string   "caption"
+    t.string   "description"
+    t.string   "comment"
+    t.string   "category"
+    t.string   "tips"
+    t.integer  "star_count",   default: 0, null: false
+    t.integer  "term",         default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "challenge_id"
+  end
+
+  add_index "levels", ["group", "level"], name: "index_levels_on_group_and_level", unique: true
 
   create_table "rankings", force: true do |t|
     t.integer  "user_id",         null: false

@@ -1,0 +1,141 @@
+#contents {
+  padding: 8px;
+}
+
+.group-frame {
+  margin: 2px;
+  padding: 12px 8px;
+  border: 0px;
+  background-color: #CBF3DE;
+
+  form.action-edit {
+    padding-top: 12px;
+  }
+}
+
+.item-frame {
+  margin: 2px;
+  padding: 8px;
+  border: 0px;
+  margin-top: 8px;
+  background-color: #E3FFF0;
+}
+
+.no-margin {
+  margin: 0;
+  padding: 0;
+}
+
+.group-id {
+  text-align: right;
+  font-size: small;
+}
+
+.group-edit {
+  button {
+    width: 100%;
+  }
+}
+
+.level-id {
+  text-align: right;
+  font-size: small;
+}
+
+.param-caption {
+  text-align: right;
+  font-size: small;
+}
+
+.fill_parent {
+  width: 100%;
+  padding: 2px;
+}
+
+span.ellipsis {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+textarea.fill_parent {
+  width: 100%;
+  padding: 2px;
+  resize: vertical;
+  height: 6em;
+  line-height: 1.2em;
+}
+
+textarea.fill_parent_high {
+  width: 100%;
+  padding: 2px;
+  resize: vertical;
+  height: 9em;
+  line-height: 1.2em;
+}
+
+textarea.fill_parent_low {
+  width: 100%;
+  padding: 2px;
+  resize: vertical;
+  height: 3em;
+  line-height: 1.2em;
+}
+
+textarea.fill_parent_lowest {
+  width: 100%;
+  padding: 2px;
+  resize: vertical;
+  height: 3em;
+  line-height: 1.2em;
+}
+
+.medal-icon {
+  max-width: 80px;
+  height: auto;
+}
+
+input.flat {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+}
+
+textarea.flat {
+  font-size: small;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+}
+
+div.comment {
+
+  div.user {
+    margin: 4px;
+    padding: 4px;
+    background-color: #FFFED4;
+  }
+
+  div.doctor {
+    margin: 4px;
+    padding: 4px;
+    background-color: #C9EBFF;
+  }
+}
+
+button.right {
+  float: right;
+}
+
+div.clearRight {
+  clear:right;
+}
+
+img.medal {
+  width: 240px;
+  height: 120px;
+}
+
+img.scene {
+  width: 329px;
+  height: 127px;
+}

@@ -44,4 +44,5 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development do
   gem 'erb2haml'
+  gem 'quiet_assets'
 end
