@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412090959) do
+ActiveRecord::Schema.define(version: 20140413021943) do
 
   create_table "achievements", force: true do |t|
     t.integer  "user_id",                  null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20140412090959) do
     t.integer  "param_2"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.binary   "image"
   end
 
   create_table "counsel_comments", force: true do |t|
@@ -84,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140412090959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "challenge_id"
+    t.binary   "image"
   end
 
   add_index "levels", ["group", "level"], name: "index_levels_on_group_and_level", unique: true

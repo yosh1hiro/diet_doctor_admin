@@ -6,10 +6,19 @@ DietDoctorAdmin::Application.routes.draw do
   resources :rankings
   resources :counsel_comments
   resources :counsels
-  resources :challenges
+  resources :challenges do
+    member do
+      get :picture
+    end
+  end
   resources :weights
   resources :achievements
   resources :users
+  resources :levels, :only => [] do
+    member do
+      get :picture
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
