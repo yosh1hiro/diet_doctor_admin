@@ -3,7 +3,6 @@
     %a(class="navbar-brand" href="/") DietDoctor
   %div(class="collapse navbar-collapse")
     = form_tag(:session, :class => 'navbar-form form-inline') do
-      %label admin.
       = text_field_tag(:name, params[:name], :placeholder => "ユーザ名", :class => 'form-control')
       = password_field_tag(:password, params[:password], :placeholder=>"パスワード", :class => 'form-control')
       = submit_tag('ログイン', :class=>'btn btn-default form-control')

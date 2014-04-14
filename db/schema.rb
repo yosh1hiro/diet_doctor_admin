@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413021943) do
+ActiveRecord::Schema.define(version: 20140413233234) do
 
   create_table "achievements", force: true do |t|
     t.integer  "user_id",                  null: false
@@ -78,9 +78,8 @@ ActiveRecord::Schema.define(version: 20140413021943) do
     t.string   "caption"
     t.string   "description"
     t.string   "comment"
-    t.string   "category"
     t.string   "tips"
-    t.integer  "star_count",   default: 0, null: false
+    t.integer  "star",         default: 0, null: false
     t.integer  "term",         default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -14,7 +14,7 @@
       %div(class="col-md-1 group-id")
         = challenge.group
       %div(class="col-md-3")
-        = link_to(challenge.caption || '(未入力)', challenge)
+        = link_to(challenge.caption || '(未入力)', edit_challenge_path(challenge))
       %div(class="col-md-6")
         %span(class="ellipsis")
           = challenge.description && (challenge.description[0..30] + '……' )

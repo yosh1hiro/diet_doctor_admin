@@ -105,7 +105,7 @@ class ChallengesController < ApplicationController
               :comment,
               :category,
               :tips,
-              :star_count,
+              :star,
               :term,
               :challenge_id,
               :image_file,

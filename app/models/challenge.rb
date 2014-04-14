@@ -2,7 +2,7 @@ class Challenge < ActiveRecord::Base
   has_many :levels, dependent: :destroy
   accepts_nested_attributes_for :levels
 
-  attr_reader :levels
+  attr_accessor :levels
 
   validates :group, :numericality => {only_integer: true}
   validates :group, :uniqueness => true
