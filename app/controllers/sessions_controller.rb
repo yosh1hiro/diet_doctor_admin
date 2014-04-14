@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       cookies.permanent.signed[:user_id] = user.id
-      cookies.permanent.signed[:auto_login_token] = user.auto_login_token
+      cookies.permanent.signed[:auto_login_token] = user.auto_login_token unless /^admin\./ =~ user.name
       flash.notice = 'ログインしました。'
       respond_to do |format|
         format.html   { redirect_to :root }
