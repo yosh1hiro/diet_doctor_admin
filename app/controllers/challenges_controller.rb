@@ -1,20 +1,10 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy, :picture]
+  before_action :set_challenge, only: [:edit, :update, :destroy, :picture]
 
   # GET /challenges
   # GET /challenges.json
   def index
     @challenges = Challenge.order(:group).to_a
-    @challenge = Challenge.new
-  end
-
-  # GET /challenges/1
-  # GET /challenges/1.json
-  def show
-  end
-
-  # GET /challenges/new
-  def new
     @challenge = Challenge.new
   end
 
