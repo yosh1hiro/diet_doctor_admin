@@ -1,2 +1,12 @@
 %div(class="row" )
   %h3 登録者数
+%div(class="row" )
+  = content_tag(:fiv, nil, id: :count_registers, data: @summary.data.to_json)
+  :javascript
+    Morris.Line({
+      element: 'count_registers',
+      data: $.parseJSON($('#count_registers').attr('data')),
+      xkey: 'date',
+      ykeys: ['value'],
+      labels: ['登録者数']
+    });

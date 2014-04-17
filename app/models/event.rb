@@ -22,7 +22,8 @@ class Event < ActiveRecord::Base
     end
 
     def count_sum_values(code)
-      Event.where(event_code: code).where('occur >= ?', @from).where('occur <= ?', @to).group(:occur).sum(:value).each do |k, v|
+      source = Event.where(event_code: code).where('occur >= ?', @from).where('occur <= ?', @to).group(:occur).sum(:value)
+      source.each do |k, v|
         i = k - @from
         @recs[i] += v
       end
@@ -30,7 +31,8 @@ class Event < ActiveRecord::Base
     end
 
     def count_unique_users(code)
-      Event.where(event_code: code).where('occur >= ?', @from).where('occur <= ?', @to).select(:occur, :user_id).uniq.group(:occur).count(:user_id).each do |k, v|
+      source = Event.where(event_code: code).where('occur >= ?', @from).where('occur <= ?', @to).select(:occur, :user_id).uniq.group(:occur).count(:user_id)
+      source.each do |k, v|
         i = k - @from
         @recs[i] += v
       end

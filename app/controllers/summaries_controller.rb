@@ -29,6 +29,7 @@ class SummariesController < ApplicationController
   class Summary
     attr_reader :required
     attr_reader :params
+    attr_reader :data
 
     def initialize(required, params = nil)
       @required = required
@@ -40,6 +41,25 @@ class SummariesController < ApplicationController
         @params[:summarize_term_begin] = today << 1
         @params[:summarize_term_end] = today
       end
+      @data = count_registers   if required == :count_registers
+
     end
+
+    def count_registers
+      data = []
+      from = Date.parse(@params[:summarize_term_begin])
+      to   = Date.parse(@params[:summarize_term_end])
+      d = from
+      Event::Counter.new(from, to).count_registers.each do |v|
+         data << {
+             date: d.strftime('%Y-%m-%d'),
+             show_date: d.day % 10 == 1,
+             value: v
+         }
+        d += 1
+      end
+      data
+    end
+
   end
 end
