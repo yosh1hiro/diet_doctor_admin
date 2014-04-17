@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :weights,      :dependent => :delete_all
-  has_many :achievements, :dependent => :delete_all
+  has_many :weights,      :dependent => :destroy
+  has_many :achievements, :dependent => :destroy
+  has_many :events,       :dependent => :destroy
   has_many :counsels
 
   attr_accessor :password

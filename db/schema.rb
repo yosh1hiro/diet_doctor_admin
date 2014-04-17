@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413233234) do
+ActiveRecord::Schema.define(version: 20140416055321) do
 
   create_table "achievements", force: true do |t|
     t.integer  "user_id",                  null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(version: 20140413233234) do
     t.string   "byAction"
     t.string   "byIllness"
     t.string   "recommendedChallenges"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.date     "occur",      null: false
+    t.integer  "user_id",    null: false
+    t.integer  "event_code", null: false
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
