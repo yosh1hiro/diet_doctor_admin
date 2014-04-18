@@ -1,11 +1,11 @@
 %div(class="row" )
   %h3 登録者数
 %div(class="row" )
-  = content_tag(:fiv, nil, id: :count_registers, data: @summary.data.to_json)
+  = content_tag(:div, nil, id: :summary_chart, data: @summary.data.to_json)
   :javascript
     Morris.Line({
-      element: 'count_registers',
-      data: $.parseJSON($('#count_registers').attr('data')),
+      element: 'summary_chart',
+      data: $.parseJSON($('#summary_chart').attr('data')),
       xkey: 'date',
       ykeys: ['value'],
       labels: ['登録者数']

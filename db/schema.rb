@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416055321) do
+ActiveRecord::Schema.define(version: 20140418060519) do
 
   create_table "achievements", force: true do |t|
     t.integer  "user_id",                  null: false
@@ -115,13 +115,12 @@ ActiveRecord::Schema.define(version: 20140416055321) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",              null: false
-    t.string   "password_digest",   null: false
+    t.string   "name",                              null: false
+    t.string   "password_digest",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
     t.string   "gender"
-    t.string   "birthday"
     t.string   "occupation"
     t.string   "exercising_custom"
     t.string   "meal_custom"
@@ -143,6 +142,9 @@ ActiveRecord::Schema.define(version: 20140416055321) do
     t.integer  "group_2"
     t.integer  "level_2"
     t.string   "auto_login_token"
+    t.date     "birthday"
+    t.float    "initial_bmi"
+    t.boolean  "pro_edition",       default: false, null: false
   end
 
   add_index "users", ["name"], name: "index_users_on_name", unique: true

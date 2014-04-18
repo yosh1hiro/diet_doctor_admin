@@ -12,6 +12,16 @@ class User < ActiveRecord::Base
 
   before_save do
     self.password_digest = BCrypt::Password.create(password)
+
+    if self.height
+      h = self.height / 100
+      self.initial_bmi = self.initial_weight / h / h  unless self.initial_weight.nil?
+      self.current_bmi = self.current_weight / h / h  unless self.current_weight.nil?
+    end
+
+    unless self.current_weight.nil? || self.initial_weight.nil? || self.initial_weight == 0
+      self.loss_rate = ((self.current_weight / self.initial_weight) - 1) * 100
+    end
   end
 
   def authenticate(password)

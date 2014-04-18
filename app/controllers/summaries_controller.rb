@@ -21,6 +21,9 @@ class SummariesController < ApplicationController
 
   def summary_params
     params.permit [
+
+
+
         :summarize_term_begin,
         :summarize_term_end
     ]
@@ -50,7 +53,7 @@ class SummariesController < ApplicationController
       from = Date.parse(@params[:summarize_term_begin])
       to   = Date.parse(@params[:summarize_term_end])
       d = from
-      Event::Counter.new(from, to).count_registers.each do |v|
+      Event::Counter.new(from, to).count_registers(@params).each do |v|
          data << {
              date: d.strftime('%Y-%m-%d'),
              show_date: d.day % 10 == 1,

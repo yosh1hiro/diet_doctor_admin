@@ -1,31 +1,176 @@
 %div(class="row group-frame")
-  - btn_class_success = 'btn form-control btn-success '
-  - btn_class_info = 'btn form-control btn-info '
+  - btn_class_primary = 'btn form-control btn-primary'
+  - btn_class_success = 'btn form-control btn-success'
   = form_tag(:summary, action: :show) do
+    %div(class="row item-frame")
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          ユーザ登録日
+        %div(class="col-md-3 right")
+          = date_field_tag(:register_date_begin, @summary.params[:register_date_begin], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = date_field_tag(:register_date_begin, @summary.params[:register_date_begin], class: 'form-control')
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          性別
+        %div(class="col-md-3 right")
+          :ruby
+            genders = options_for_select [
+              ['男'] * 2,
+              ['女'] * 2,
+            ]
+          = select_tag(:gender, genders, prompt: '選択してください', class: 'form-control', include_blank: true)
+        %div(class="col-md-1 right")
+          職業
+        %div(class="col-md-3 right")
+          :ruby
+            occupations = options_for_select [
+              ['会社員（管理職）']   * 2,
+              ['会社員（総合職）']     * 2,
+              ['会社員（一般職）'] * 2,
+              ['派遣・アルバイト'] * 2,
+              ['学生'] * 2,
+              ['主婦・パート'] * 2,
+              ['その他'] * 2
+            ]
+          = select_tag(:occupation, occupations, prompt: '選択してください', class: 'form-control', include_blank: true)
+        %div(class="col-md-1 right")
+          プロ版
+        %div(class="col-md-2 right")
+          :ruby
+            contracts = options_for_select [
+              ['契約']   * 2,
+              ['未契約'] * 2
+            ]
+          = select_tag(:contract, contracts, prompt: '選択してください', class: 'form-control', include_blank: true)
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          食事習慣
+        %div(class="col-md-3 right")
+          :ruby
+            meal_customs = options_for_select [
+              ['食事に全く気を使っていない']   * 2,
+              ['食事に時々気を使っている']     * 2,
+              ['食事にほぼ毎回気を使っている'] * 2
+            ]
+          = select_tag(:meal_custom, meal_customs, prompt: '選択してください', class: 'form-control', include_blank: true)
+        %div(class="col-md-1 right")
+          運動習慣
+        %div(class="col-md-3 right")
+          :ruby
+            exercising_customs = options_for_select [
+              ['ほとんど運動しない']   * 2,
+              ['時々運動している']     * 2,
+              ['ほぼ毎日運動している'] * 2
+            ]
+          = select_tag(:exercising_custom, exercising_customs, prompt: '選択してください', class: 'form-control', include_blank: true)
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          年齢
+        %div(class="col-md-3 right")
+          = number_field_tag(:age_min, @summary.params[:age_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:age_max, @summary.params[:age_max], class: 'form-control')
+        %div(class="col-md-1")
+          歳
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          身長
+        %div(class="col-md-3 right")
+          = number_field_tag(:height_min, @summary.params[:height_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:height_max, @summary.params[:height_max], class: 'form-control')
+        %div(class="col-md-1")
+          cm
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          体重（初期）
+        %div(class="col-md-3 right")
+          = number_field_tag(:initial_weight_min, @summary.params[:initial_weight_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:initial_weight_max, @summary.params[:initial_weight_max], class: 'form-control')
+        %div(class="col-md-1")
+          kg
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          体重（現在）
+        %div(class="col-md-3 right")
+          = number_field_tag(:current_weight_min, @summary.params[:current_weight_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:current_weight_max, @summary.params[:current_weight_max], class: 'form-control')
+        %div(class="col-md-1")
+          kg
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          体重減少度
+        %div(class="col-md-3 right")
+          = number_field_tag(:loss_rate_min, @summary.params[:loss_rate_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:loss_rate_max, @summary.params[:loss_rate_max], class: 'form-control')
+        %div(class="col-md-1") %
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          BMI（初期）
+        %div(class="col-md-3 right")
+          = number_field_tag(:initial_bmi_min, @summary.params[:initial_bmi_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:initial_bmi_max, @summary.params[:initial_bmi_max], class: 'form-control')
+        %div(class="col-md-1")
+          kg/m2
+      %div(class="row buttons")
+        %div(class="col-md-2 right")
+          BMI（現在）
+        %div(class="col-md-3 right")
+          = number_field_tag(:urrent_bmi_min, @summary.params[:urrent_bmi_min], class: 'form-control')
+        %div(class="col-md-1 center")
+          〜
+        %div(class="col-md-3 right")
+          = number_field_tag(:current_bmi_max, @summary.params[:current_bmi_max], class: 'form-control')
+        %div(class="col-md-1")
+          kg/m2
+    -# 集計条件
+          # 　- 13.プロ版契約者：	契約者 or 非契約者
+
+    %div(class="row spacer")
+    -# 集計実行ボタン
     %div(class="row buttons")
       %div(class="col-md-3")
-        = submit_tag('登録者数', name: :count_registers, class: btn_class_success)
+        = submit_tag('登録者数', name: :count_registers, class: @summary.required == :count_registers ? btn_class_success: btn_class_primary)
       %div(class="col-md-3")
       %div(class="col-md-3")
         期間
       %div(class="col-md-3 group-edit")
-        = submit_tag('実施状況', name: :practice_status, class: btn_class_info)
+        = submit_tag('実施状況', name: :practice_status, class: @summary.required == :practice_status ? btn_class_success: btn_class_primary)
     %div(class="row buttons")
       %div(class="col-md-3")
-        = submit_tag('ユーザ（延べ）', name: :cumulative_users, class: btn_class_success)
+        = submit_tag('ユーザ（延べ）', name: :cumulative_users, class: @summary.required == :cumulative_users ? btn_class_success: btn_class_primary)
       %div(class="col-md-3")
-        = submit_tag('ユーザ（ユニーク）', name: :unique_users, class: btn_class_success)
+        = submit_tag('ユーザ（ユニーク）', name: :unique_users, class: @summary.required == :unique_users ? btn_class_success: btn_class_primary)
       %div(class="col-md-3")
         = date_field_tag(:summarize_term_begin, @summary.params[:summarize_term_begin], class: 'form-control')
     %div(class="row buttons")
       %div(class="col-md-3")
-        = submit_tag('相談回数', name: :counsel_counts, class: btn_class_success)
+        = submit_tag('相談回数', name: :counsel_counts, class: @summary.required == :counsel_counts ? btn_class_success: btn_class_primary)
       %div(class="col-md-3")
-        = submit_tag('相談ユーザ数', name: :counsel_users, class: btn_class_success)
+        = submit_tag('相談ユーザ数', name: :counsel_users, class: @summary.required == :counsel_users ? btn_class_success: btn_class_primary)
       %div(class="col-md-3")
         = date_field_tag(:summarize_term_end, @summary.params[:summarize_term_end], class: 'form-control')
     %div(class="row buttons")
       %div(class="col-md-3")
-        = submit_tag('課金額（DDクリニック）', name: :ddq_purchases, class: btn_class_success)
+        = submit_tag('課金額（DDクリニック）', name: :ddq_purchases, class: @summary.required == :ddq_purchases ? btn_class_success: btn_class_primary)
       %div(class="col-md-3")
-        = submit_tag('課金額（プロ版月額）', name: :pro_purchases, class: btn_class_success)
+        = submit_tag('課金額（プロ版月額）', name: :pro_purchases, class: @summary.required == :pro_purchases ? btn_class_success: btn_class_primary)

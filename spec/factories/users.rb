@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
 
-  factory :user do
+  factory :user_for_event, class: User do
     sequence(:name) { |n| "ユーザ-#{n}" }
     password_digest BCrypt::Password.create('hoge')
 

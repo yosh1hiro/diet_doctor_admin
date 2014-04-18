@@ -130,6 +130,9 @@ div.right {
   text-align: right;
 }
 
+div.center {
+  text-align: center;
+}
 
 div.clearRight {
   clear:right;
@@ -143,4 +146,8 @@ img.medal {
 img.scene {
   width: 329px;
   height: 127px;
+}
+
+#summary_chart {
+  height: 240px;
 }
