@@ -54,5 +54,10 @@ group :test, :development do
   gem 'database_cleaner'
 end
 
+group :production do
+  gem 'mysql2'
+end
+
+
 # chart用
 gem 'raphael-rails'
