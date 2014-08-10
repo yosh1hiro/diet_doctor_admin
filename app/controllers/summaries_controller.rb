@@ -1,5 +1,5 @@
 class SummariesController < ApplicationController
-
+#集計機能
   def show
     @summary = Summary.new(:empty)  if @summary.nil?
   end

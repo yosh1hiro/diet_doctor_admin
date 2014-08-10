@@ -1,12 +1,12 @@
 DietDoctorAdmin::Application.routes.draw do
 
-  root :to => 'dash_boards#index'
+  root to: 'dash_boards#index'
 
-  resource  :session, :only   => [:new, :create, :destroy]
+  resource  :session, only: [:new, :create, :destroy]
   resources :rankings
   resources :counsel_comments
   resources :counsels
-  resources :challenges, :except => [:new, :show]  do
+  resources :challenges, except: [:new, :show]  do
     member do
       get :picture
     end
@@ -18,13 +18,13 @@ DietDoctorAdmin::Application.routes.draw do
       get :query
     end
   end
-  resources :levels, :only => [] do
+  resources :levels, only: [] do
     member do
       get :picture
     end
   end
-  resource :summary, :only => [:show, :create]
-  resources :events, :only => [:create]
+  resource :summary, only: [:show, :create]
+  resources :events, only: [:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
